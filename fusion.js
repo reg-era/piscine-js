@@ -1,3 +1,4 @@
+// to ensur credential
 const fusion = (...objs) => {
     let res = {}
     let allkeys = []
