@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="inputField">
+    <h1 id="output"></h1>
+
+    <script type="module">
+        import {throttle} from './throttle.js'
+        const inputField = document.getElementById('inputField');
+        const output = document.getElementById('output');
+
+        const updateOutput = (value) => {
+            output.textContent = value;
+        };
+
+        const throttledUpdate = throttle(updateOutput, 2000); // Adjust the wait time as needed
+
+        inputField.addEventListener('input', (event) => {
+            throttledUpdate(event.target.value);
+        });
+    </script>
+</body>
+
+</html>
